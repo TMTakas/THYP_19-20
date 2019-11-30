@@ -1,12 +1,14 @@
 #Comment je réalise ma veille ?
 
-J'utilise des outils pour lire les flux RSS, il en existe plein : NetVibes, Google Reader ...
-
-#Diigo :
-
-J'ai utiliser diigo principalement pour enregistrer des bouts de codes dont j'ai besoins ou aurai besoin pour plus tard. J'ai aussi surligné des phrase que je trouvais importante et des notion sur certains framwork que je souhaite apprendre
+J'utilise des outils pour lire les flux RSS des sites qui parles sur un domaine qui m'intéresse, il en existe plein : NetVibes, Google Reader ...
+et ensuit je sauvegarde les informations les plus intéressante sur Diigo
 
 #Netvibes:
 
-Netvibes est un levteur des flux RSS, il permet d'organiser sa veille grace à une interface simple.
-Aussi netvibes dispose un lien pour lire ses flux RSS sur le smartfone : https://mobile.netvibes.com/
+Netvibes est un lecteur des flux RSS, il permet d'organiser sa veille grâce à une interface simple.
+Aussi Netvibes dispose un lien pour lire ses flux RSS sur le smartphone : https://mobile.netvibes.com/ , Très pratique quand je prends les transports
+
+#Diigo :
+
+Diigo est un site Web de bookmarking qui permet de marquer des pages Web.
+de plus, il permet aux utilisateurs de surligner n’importe quelle partie d’une page Web et d’attacher des notes autocollantes.
