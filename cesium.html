@@ -1,0 +1,73 @@
+<html>
+
+	<head>
+		<title>Cesium</title>
+		<script type="text/javascript" src="js/cesium/Apps/Sandcastle/Sandcastle-header.js"></script>
+		<script type="text/javascript" src="js/cesium/Build/CesiumUnminified/Cesium.js" ></script>
+	</head>
+
+	<style>
+		@import url(js/cesium/Apps/Sandcastle/templates/bucket.css);
+		body{
+			/*background: white!important;*/
+		}
+	</style>
+	
+	<div>
+		<div style="height: 80px;">
+		
+			<div class="info legend leaflet-control">
+				<i style="background:#FFEDA0; float: left; width: 20px; height: 15px;"></i> 1-5 Fois<br>
+				<i style="background:#FED976; float: left; width: 20px; height: 15px;"></i> 5-10 Fois<br>
+				<i style="background:#FEB24C; float: left; width: 20px; height: 15px;"></i> 10-20 Fois<br>
+				<i style="background:#FD8D3C; float: left; width: 20px; height: 15px;"></i> 20-50 Fois<br>
+				<i style="background:#FC4E2A; float: left; width: 20px; height: 15px;"></i> 50+</div>
+		
+		</div>
+		<div id="cesiumContainer" class=""></div>
+	</div>
+	<div id="loadingOverlay"><h1>Loading...</h1></div>
+	<div id="toolbar"></div>
+	
+
+	<script id="cesium_sandcastle_script">
+	
+		Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjOWY0MTFiNC04N2NmLTQwZTUtOThiMS05MGRlNWI3MTRiYTYiLCJpZCI6MTc3NzUsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NzI4MTMzMjJ9.KGsUcXIA_TmA2Wtp3rx2MIeY9sTaLE9e35tbYzsXijc';
+		
+		var viewer = new Cesium.Viewer('cesiumContainer');
+		
+		// If > 50 : YELLOW
+		// IF > 25 && < 50 BLUE
+		// IF > 10 && < 25 PURPLE
+		// IF > 0
+		
+		var cesiumBlue = Cesium.Color.fromCssColorString('#67ADDF');
+		
+		viewer.dataSources.add(Cesium.GeoJsonDataSource.load('js/cesium/visitedCountries/Morocco.json', {
+			stroke: cesiumBlue,
+			fill: Cesium.Color.fromCssColorString('#FC4E2A'),
+			strokeWidth: 3
+		}));
+		
+		viewer.dataSources.add(Cesium.GeoJsonDataSource.load('js/cesium/visitedCountries/Spain.json', {
+			stroke: cesiumBlue,
+			fill: Cesium.Color.fromCssColorString('#FFEDA0'),
+			strokeWidth: 3
+		}));
+		
+		viewer.dataSources.add(Cesium.GeoJsonDataSource.load('js/cesium/visitedCountries/France.json', {
+			stroke: cesiumBlue,
+			fill: Cesium.Color.fromCssColorString('#FD8D3C'),
+			strokeWidth: 3
+		}));
+		
+		viewer.dataSources.add(Cesium.GeoJsonDataSource.load('js/cesium/visitedCountries/Germany.json', {
+			stroke: cesiumBlue,
+			fill: Cesium.Color.fromCssColorString('#FFEDA0'),
+			strokeWidth: 3
+		}));
+		
+	</script>
+	
+	
+</html>

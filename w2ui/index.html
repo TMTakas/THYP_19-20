@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.5.rc1.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://w2ui.com/src/w2ui-1.5.rc1.min.js"></script>
+
+        <!-- D3.js -->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <div id="grid" style="width: 100%; height: 250px;"></div>
+</body>
+<script>
+
+    var totals = {'totalBesoins' : 0,'totalCompetences': 0};
+    var besoins = []
+    var competences = []
+    
+    var vals = {"Pas besoin":1, "Besoin d'approfondissement":5, "Besoin urgent":10, "je ne connais pas du tout":1,"je connais un peu":5,"je vonnais bien":10,"je suis expert(e)":20};
+
+    var addYourInfoURL = "https://forms.gle/Wp4Sbf173oUzASU88";
+
+    var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRPYNknmIr5_bU7GfiJtuS_b9fGae7HZwcjAiMoAC24fLzIfxRtXQySMu3E95D3M595D3DYT7NUtvzt/pub?gid=760811187&single=true&output=csv'            
+    var q = d3.queue()
+        .defer(d3.csv, url)
+        .awaitAll(function(error, results) {
+        if (error) throw error;
+        setData(results);
+    });
+
+    function setData(data)
+    {
+        dataForm = data[0];
+
+        _records = []
+        var id = 1;
+
+         //réorganise les datas
+         dataForm.forEach(function(d, j){
+
+            _records.push({ recid:id++, _netudiant: d["N° étudiant"], _prenom: d["Votre prénom"], _nom: d["Votre nom"], _email: d["Votre mail"]});
+            
+        });	
+
+
+        $('#grid').w2grid({
+        name: 'grid',
+        header: 'List of Names',
+        
+        columns: [
+            {field: '_netudiant', caption: 'N° Etudiant', size: '100%'},
+            { field: '_nom', caption: 'Nom', size: '100%' },
+            { field: '_prenom', caption: 'Prenom', size: '100%' },
+            { field: '_email', caption: 'Email', size: '100%' }
+        ],
+
+        records: _records
+    });
+
+    }
+</script>
+</html>
